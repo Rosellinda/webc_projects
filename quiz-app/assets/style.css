@@ -1,0 +1,77 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    /* property to determine clipping at the left and right edges */
+    /* hidden - The content is clipped - and no scrolling mechanism is provided */
+    overflow-x: hidden;
+}
+
+*, *::before, *:after {
+    /* property defines how the width and height of an element are calculated: should they include padding and borders, or not. */
+    /* Inherits this property from its parent element. */
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Nunito', Arial;
+    margin: 0;
+    padding: 0;
+}
+
+#quiz-app {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(120deg, #ffbbd6 0%, #8fd3f4 100%);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.center-card {
+    height: 100%;
+    width: 100%;
+    max-width: 468px;
+    max-height: 600px;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: .7rem;
+    box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.16);
+    padding: 2rem;
+    /* visibility property specifies whether or not an element is visible. */
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transform-origin: top;
+    transform: translateY(-150px) scale(.6);
+    transition: transform .5s, opacity .7s .1s, visibility .7s .1s;
+    user-select: none;
+    z-index: -1;
+}
+
+.center-card.show {
+    position: relative;
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+    visibility: visible;
+    transition: transform .6s, opacity .7s .2s, visibility .7s .2s;
+}
+
+/** Quiz Card - START */
+
+.quiz-details__question-icon {
+    display: block;
+    margin: 2rem 1rem;
+    text-align: center;
+}
+
+.quiz-details__question-icon svg {
+    stroke: #000;
+    stroke-width: 2px;
+    fill: #028a3d;
+}
+
